@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 # CSRF_TRUSTED_ORIGINS = ['https://pesmarica2-production-91cd.up.railway.app']
 
@@ -138,7 +138,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 
 # Simplified static file serving.
@@ -195,3 +195,8 @@ SPECTACULAR_SETTINGS = {
 
 # Additionally, you should update the ALLOWED_HOSTS setting to:
 # ALLOWED_HOSTS = ['*']
+
+
+if os.environ.get('VERCEL'):
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
