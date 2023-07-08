@@ -26,7 +26,7 @@ import datetime
 # default user that creates all the songs. Put the username and email that you created
 user = User.objects.get(username='django', email='django@example.com')
 
-for i in range(4):
+for i in range(20):
     if i == 0:
         html_text = requests.get("http://www.pesmarica.rs/").text
     else:
