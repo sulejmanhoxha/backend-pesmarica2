@@ -35,7 +35,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
-#CSRF_TRUSTED_ORIGINS = ['https://pesmarica2-production-91cd.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://pesmarica2-production-91cd.up.railway.app']
 CSRF_TRUSTED_ORIGINS = ['https://backend-pesmarica2.vercel.app']
 
 # Application definition
@@ -194,15 +194,15 @@ SPECTACULAR_SETTINGS = {
 # so I am going to comment it out so it does not interfere with for example railway.
 
 # Uncomment the following lines to allow requests from all origins:
-# CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOW_METHODS = (
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# )
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
 
 # Additionally, you should update the ALLOWED_HOSTS setting to:
 # ALLOWED_HOSTS = ['*']
