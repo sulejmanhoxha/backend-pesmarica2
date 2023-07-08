@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -21,15 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-2z%xcv23_bib_nmms+tnnr!ydzq69v5zes2qdlmq)uwn@3@au('
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
+# SECRET_KEY = 'django-insecure-2z%xcv23_bib_nmms+tnnr!ydzq69v5zes2qdlmq)uwn@3@au('
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['pesmarica2-production-91cd.up.railway.app', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['.vercel.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://pesmarica2-production-91cd.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://pesmarica2-production-91cd.up.railway.app']
 
 # Application definition
 
@@ -99,7 +101,6 @@ DATABASES = {
 
 # Update database configuration from $DATABASE_URL.
 # https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment#example_installing_locallibrary_on_railway
-import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -162,7 +163,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('JWT',),
 }
 
 SPECTACULAR_SETTINGS = {
@@ -182,16 +183,15 @@ SPECTACULAR_SETTINGS = {
 # so I am going to comment it out so it does not interfere with for example railway.
 
 # Uncomment the following lines to allow requests from all origins:
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = (
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-)
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_METHODS = (
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# )
 
 # Additionally, you should update the ALLOWED_HOSTS setting to:
-ALLOWED_HOSTS = ['*']
-
+# ALLOWED_HOSTS = ['*']
